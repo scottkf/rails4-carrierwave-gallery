@@ -1,0 +1,17 @@
+<%= form_for @photo, :html => {:multipart => true} do |f| %>
+
+  <div class="field">
+    <%= f.collection_select :album_id, Album.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= image_tag(@photo.file_url) if @photo.file? %>
+    <%= f.file_field :file %>
+    <%= f.hidden_field :file_cache %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,8 @@
+<div class="photo">
+  <%= image_tag photo.file_url(:thumb) if photo.file? %>
+  <div class="name"><%= photo.file.identifier %></div>
+  <div class="actions">
+    <%= link_to "edit", edit_photo_path(photo) %> |
+    <%= link_to "remove", photo, data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  </div>
+</div>
